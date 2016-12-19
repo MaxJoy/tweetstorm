@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
+import { StreamProvider, Timeline, createSuperstream, createStore } from 'omnistream';
+import { input$ } from './actions/actionStreams'
+import formReducer from './reducers/formReducer'
 
-const ws = new WebSocket('ws://localhost:3000');
 
-ws.onopen = () => {
-  ws.send('location');
-};
+const superstream = createSuperstream();
+const inputState$ = superstream.createStatestream(formReducer, input$);
+const streamCollection = { inputState$ };
 
-ws.onmessage = (message) => {
-  console.log(JSON.parse(message.data).text);
-};
+superstream.createStore(streamCollection);
 
+ReactDOM.render((
+  <StreamProvider superstream={superstream}>
+    <App />
+  </StreamProvider>
+), document.getElementById('root'))
