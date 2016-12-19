@@ -1,0 +1,77 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  padding: 10px;
+}
+
+
+button {
+  border: 1px solid #DCD2DA;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1em;
+  background-color: white;
+  color: #707070;
+  align-self: center;
+}
+
+button:active,
+button:hover {
+  background-color: #f0f0f0;
+  outline: none;
+}
+
+button:focus {
+  outline:none;
+}
+
+input:focus {
+  outline:none;
+}
+
+input {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+#feed-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 50px;
+  font-weight: 300;
+}
+
+.tweet {
+  padding: 0px 10px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 3em;
+}

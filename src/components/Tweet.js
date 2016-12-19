@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Tweet extends Component {
   render() {
     return (
-      <div className='Tweet'>
-        <p>hi</p>
-      </div>  
+      <div className='tweet'>
+        <p>{this.props.tweet}</p>
+      </div>
     )
   }
 }
