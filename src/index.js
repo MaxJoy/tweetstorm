@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Observable } from 'rxjs/Rx'
 
-const ws = new WebSocket('ws://localhost:3000');
+const socket$ = Observable.webSocket('ws://localhost:3000')
+  .retryWhen(error => error.delay(200));
 
-ws.onopen = () => {
-  ws.send('location');
-};
+socket$.subscribe(e => console.log(e))
 
-ws.onmessage = (message) => {
-  console.log(JSON.parse(message.data).text);
-};
+socket$.next('location');
 
