@@ -1,9 +1,6 @@
 module.exports = {
   entry: './src/index.js',
-  output: {
-    path: 'build',
-    filename: 'webpack-bundle.js'
-  },
+  output: { path: __dirname + '/build', filename: 'bundle.js' },
   module: {
     loaders: [
       {
@@ -22,7 +19,7 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/': 'http://localhost:3000',
+      '/d': 'http://localhost:3000',
     }
   },
 }

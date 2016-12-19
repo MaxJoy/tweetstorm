@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "webpack": "webpack-dev-server --content-base build --inline --hot"
   },
   "author": "",
   "license": "ISC",
@@ -24,11 +25,14 @@
     "body-parser": "^1.15.2",
     "crypto": "0.0.3",
     "express": "^4.14.0",
+    "fs": "0.0.1-security",
     "omnistream": "0.0.9",
     "passport-twitter": "^1.0.4",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "rxjs": "^5.0.1",
+    "tls": "0.0.1",
+    "twit": "^2.2.5",
     "twitter": "^1.7.0",
     "ws": "^1.1.1"
   }
