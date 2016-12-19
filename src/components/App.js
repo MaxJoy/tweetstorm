@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title'
+require('../style/style.css');
 
 class App extends Component {
   render() {

@@ -30,11 +30,15 @@ class Title extends Component {
   });
   console.log('current feeds are', feeds)
   return (
+    <div id='title-container'>
       <div className='title'>
         <h1>TweetStorm</h1>
         <input onChange={this.handleChange} type='text' placeholder='type keyword here' value={this.props.value} />
         <button className='add-column' onClick={this.handleSubmit}>Add Column</button>
-        { feeds }
+        </div>
+        <div id='feed-container'>
+          { feeds }
+        </div>
       </div>
     )
   }

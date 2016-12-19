@@ -20,7 +20,7 @@ class Feed extends Component {
   }
 
   render() {
-    // console.log('tweetdiv props are', this.props)
+    console.log('tweetdiv props are', this.props)
     // console.log('this.props', this.props)
     // let tweets = [];
     // if (this.props.tweets && Object.keys(this.props.tweets).length) {
@@ -34,7 +34,7 @@ class Feed extends Component {
     })
     return (
       <div className='feed'>
-        <button onClick={this.closeStream} className='delete'>delete</button>
+        <button onClick={this.closeStream} className='delete'>Pause</button>
         {tweetDivs}
       </div>
     )
