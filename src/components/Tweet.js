@@ -4,8 +4,8 @@ class Tweet extends Component {
   render() {
     return (
       <div className='Tweet'>
-        <p>hi</p>
-      </div>  
+        <p>{this.props.tweet}</p>
+      </div>
     )
   }
 }
