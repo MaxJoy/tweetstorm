@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import Tweet from './Tweet'
 import {reactiveComponent} from 'omnistream'
 import {closeStream} from '../actions/actions'
-
+import TweetInfo from './TweetInfo';
 
 class Feed extends Component {
   constructor(props) {
     super(props);
     this.closeStream = this.closeStream.bind(this);
-  }
-
-  componentDidMount() {
-    // this.props.dispatchObservableFn(getTweets);
   }
 
   closeStream() {
@@ -20,22 +16,11 @@ class Feed extends Component {
   }
 
   render() {
-    console.log('tweetdiv props are', this.props)
-    // console.log('this.props', this.props)
-    // let tweets = [];
-    // if (this.props.tweets && Object.keys(this.props.tweets).length) {
-    //   const keywords = Object.keys(this.props.tweets);
-    //   tweets = this.props.tweets[keywords[0]]
-    //   // console.log(tweets)
-    // }
-    // // console.log(tweets)
-    const tweetDivs = this.props.tweets.map(tweet => {
-      return <Tweet tweet={tweet} />
-    })
     return (
       <div className='feed'>
+        <h2 className='feed-title'>{this.props.keyword}</h2>
         <button onClick={this.closeStream} className='delete'>Pause</button>
-        {tweetDivs}
+        <TweetInfo rate={this.props.rate} count={this.props.count} />
       </div>
     )
   }

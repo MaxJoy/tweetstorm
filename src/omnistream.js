@@ -1,0 +1,1 @@
+import { createOmnistream } from 'omnistream';

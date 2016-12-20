@@ -6,7 +6,11 @@ body {
   padding: 10px;
 }
 
-
+h2 {
+  text-align: center;
+  margin: 0px;
+  font-weight: 400;
+}
 button {
   border: 1px solid #DCD2DA;
   border-radius: 5px;
@@ -43,7 +47,7 @@ input {
 #feed-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .feed {

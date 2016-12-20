@@ -5,5 +5,5 @@ export const input$ = (superstream) => {
 }
 
 export const tweet$ = (superstream) => {
-  return superstream.filterForActionTypes(['NEW_TWEET'])
+  return superstream.filterForActionTypes(['NEW_TWEET', 'UPDATE_RATE', 'UPDATE_COUNT'])
 }

@@ -21,14 +21,13 @@ class Title extends Component {
 
   render() {
   let feedNames = [];
-  if (this.props.tweets) {
-    const keywords = Object.keys(this.props.tweets);
+  if (this.props.rates) {
+    const keywords = Object.keys(this.props.rates);
     feedNames = keywords.length ? keywords : [];
   }
   const feeds = feedNames.map(name => {
-    return <Feed keyword={name} tweets={this.props.tweets[name]} />
+    return <Feed keyword={name} key={name} rate={this.props.rates[name]} count={this.props.counts[name]}/>
   });
-  console.log('current feeds are', feeds)
   return (
     <div id='title-container'>
       <div className='title'>
