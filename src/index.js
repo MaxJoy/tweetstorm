@@ -18,7 +18,8 @@ omnistream.createStore(streamCollection);
 ReactDOM.render(
   <StreamProvider omnistream={omnistream}>
     <App />
+    <Timeline omnistream={omnistream} />
 </StreamProvider>, document.getElementById('root'))
 
 
-   // <Timeline omnistream={omnistream} />
+   // 
