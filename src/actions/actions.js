@@ -15,14 +15,22 @@ const getTweetStream = (keyword) => socket$.multiplex(
 )
 
 export const tweetStreamCreator = (keyword) => {
-  console.log('tweeet stream creator with', keyword);
   return (omnistream) => {
+
+    // create a stream of tweet objects from our websocket
     const tweet$ = getTweetStream(keyword)
         .retryWhen(error => error.delay(500)).publish();
     tweet$.connect();
+
+    // create a stream that counts elapsed seconds
     const second$ = Rx.Observable.interval(1000)
       .scan((acc, curr) => acc + 1, 0)
+
+    // create a stream that counts total tweets
     const tweetCount$ = tweet$.scan((acc, curr) => acc + 1, 0);
+
+    // return a stream that emits a formatted rate and count action with each tweet received
+    // this stream will continue emitting until a close_stream action is sent to the omnistream
     return second$.withLatestFrom(tweetCount$, (seconds, tweets) => (
       { type: 'UPDATE_RATE', rate: (tweets / seconds).toFixed(2), keyword}
     )).merge(tweetCount$.map(count => ({type: 'UPDATE_COUNT', count, keyword})))
